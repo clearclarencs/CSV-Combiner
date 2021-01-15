@@ -7,7 +7,11 @@ try:
 except:
     print("Couldn't Get CSV's")
 
-final = "\n" # Final string of all combined
+try:
+    with open("CSVs/"+files[0], "r") as r:
+        final = r.read().splitlines()[0]+"\n"
+except:
+    final = "FirstLine\n" # Final string of all combined
 
 for File in files:
     with open("CSVs/"+File, "r") as r:
